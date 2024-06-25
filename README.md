@@ -63,3 +63,28 @@ https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/template/portainer-
 2. Environment-related > Environments > local > Public IP. 
 
 Use the Raspberry Pi's IP Address. For example: 192.168.x.x
+
+You can now choose a Stack to upload: 
+
+```
+Home > local > Stacks > + Add Stack.
+```
+
+Check the portainer/stacks/vpn to see which stack you want to upload.
+
+Once you upload the target stack, you can *monitor* it in the Portainer UI.
+
+Go to the following: 
+
+```
+local > Images 
+local > Containers
+```
+
+Turn on Auto refresh. 
+
+Tips and Tricks
+
+How come my stack didn't deploy?
+
+It's possible there was an error. Check the bell icon on your portainer. It will be at the top right hand corner. 
