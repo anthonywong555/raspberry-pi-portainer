@@ -1,0 +1,25 @@
+services:
+    homeassistant:
+        image: homeassistant/home-assistant:stable
+        container_name: homeassistant
+        restart: unless-stopped
+        ports:
+          - 8123:8123/tcp
+        environment:
+          - TZ=America/New_York
+        volumes:
+          - /srv/ha_config:/config
+          - /etc/localtime:/etc/localtime:ro
+          - /run/dbus:/run/dbus:ro # Check your Raspberry Pi for this. It could be different.
+        privileged: true
+        devices:
+          - /dev/ttyAMA0:/dev/ttyAMA0 # Check your Raspberry Pi /dev/ to see what bluetooth device you have.
+        networks:
+            dev:
+              ipv4_address: 10.10.1.2
+
+networks:
+  dev:
+    ipam:
+      config:
+        - subnet: 10.10.1.0/24
