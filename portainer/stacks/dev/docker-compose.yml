@@ -1,0 +1,20 @@
+volumes:
+  etc_nodered:
+
+services:
+    nodered:
+        image: nodered/node-red:latest-debian
+        container_name: nodered
+        ports:
+          - 1880:1880
+        volumes:
+          - etc_nodered:/data
+        networks:
+          iot:
+            ipv4_address: 10.11.1.2
+
+networks:
+  iot:
+    ipam:
+      config:
+        - subnet: 10.11.1.0/24

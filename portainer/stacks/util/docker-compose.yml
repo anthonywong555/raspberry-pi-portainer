@@ -1,0 +1,24 @@
+volumes:
+  etc_languagetool
+
+services:
+    languagetool:
+      image: silviof/docker-languagetool
+      container_name: languagetool
+      privileged: true
+      read_only: true
+      ports:
+        - 8010:8010
+      volumes:
+        - etc_languagetool:/languagetool/tmp
+        - ./data/ngrams:/ngrams
+      restart: unless-stopped
+      networks:
+            vpn:
+              ipv4_address: 10.8.1.6
+
+networks:
+  vpn:
+    ipam:
+      config:
+        - subnet: 10.8.1.0/24

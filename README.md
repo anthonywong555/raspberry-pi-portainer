@@ -117,7 +117,7 @@ Before you can get started you will need the following:
 
 If you are planning to use the bluetooth, within your Raspberry Pi, then you will need to check to see if you have [dbus-broker and BlueZ](https://www.home-assistant.io/integrations/bluetooth#additional-details-for-container-core-and-supervised-installs) installed.
 
-*It's possible to get the bluetooth working with Home Assistant, but when it doesn't work it's a pain in the butt to debug. Worst case, failover to the Home Assistant OS. See [here](https://www.home-assistant.io/installation/raspberrypi/).*
+*It's possible to get the bluetooth working with Home Assistant, but when it doesn't work it's a pain in the butt to debug. Worst case, failover to the Home Assistant OS. See [here](https://www.home-assistant.io/installation/raspberrypi/). It's way easier.*
 
 I recommend running Home Assistant outside of Portainer:
 ```
@@ -126,4 +126,16 @@ docker compose -f portainer/stacks/iot/docker.yml up -d
 
 Additional Resources:
 - [Cannot get HomeAssistant Docker Container to see Raspberry Pi 3 Bluetooth](https://community.home-assistant.io/t/cannot-get-homeassistant-docker-container-to-see-raspberry-pi-3-bluetooth/534961)
-- [How to: changing from /dev/ttyACM0 to /dev/USB0?](https://community.home-assistant.io/t/how-to-changing-from-dev-ttyacm0-to-dev-usb0/392582) 
+- [How to: changing from /dev/ttyACM0 to /dev/USB0?](https://community.home-assistant.io/t/how-to-changing-from-dev-ttyacm0-to-dev-usb0/392582)
+- [Switchbot Bot Keeps Becoming Unavailable](https://community.home-assistant.io/t/switchbot-bot-keeps-becoming-unavailable/567075/3)
+- [Bluetooth failing after upgrade to HAOS 10 on Raspberry Pi](https://github.com/home-assistant/operating-system/issues/2485)
+- [Docker install previous HA version](https://community.home-assistant.io/t/docker-install-previous-ha-version/267345)
+- [How to update Home Assistant Docker Container](https://jackstromberg.com/2020/03/how-to-update-home-assistant-docker-container/)
+
+### Setup Util Stack
+
+### [Language Tool](https://languagetool.org/)
+
+I recommend using this [docker instance](https://hub.docker.com/r/silviof/docker-languagetool) because it supports **linux/arm/v7**.
+
+It's worth doing the **ngrams**.
