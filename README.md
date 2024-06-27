@@ -19,6 +19,16 @@ To turn on the following
 
 Set the Raspberry Pi's [Static IP Address](https://www.tomshardware.com/how-to/static-ip-raspberry-pi)
 
+### Install [Shell in a Box](https://github.com/shellinabox/shellinabox)
+
+```
+sudo apt install shellinabox
+```
+
+Visit the following page:
+
+> https://pi-address:4200/
+
 ### Install Vim
 
 ```
