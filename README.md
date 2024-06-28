@@ -1,5 +1,5 @@
 # raspberry-pi-portainer
-![](./assets/hommarr-dashboard.png)
+![](./assets/homarr-dashboard.png)
 
 My custom Raspberry Pi Portainer setup and configuration. 
 
