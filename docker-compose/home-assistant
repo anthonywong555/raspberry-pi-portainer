@@ -1,0 +1,51 @@
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    volumes:
+      - ./app-data/home-assistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+  
+  esphome:
+    container_name: esphome
+    image: ghcr.io/esphome/esphome
+    volumes:
+      - ./app-data/esphome/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+  
+  whisper:
+    image: rhasspy/wyoming-whisper
+    container_name: whisper
+    restart: always
+    command: --model tiny.en --language en
+    volumes:
+      - ./app-data/whisper:/data:Z
+    ports:
+      - "10300:10300"
+
+  piper:
+    image: rhasspy/wyoming-piper
+    container_name: piper
+    restart: always
+    command: --voice en-gb-southern_english_female-low
+    volumes:
+      - ./app-data/piper:/data:Z
+    ports:
+      - "10200:10200"
+
+  openwakeword:
+    image: rhasspy/wyoming-openwakeword:latest
+    container_name: openwakeword
+    command: --preload-model 'ok_nabu'
+    restart: always
+    volumes:
+      - ./app-data/openwakeword:/custom
+    ports:
+      - "10400:10400"
